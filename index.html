@@ -96,7 +96,8 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
                 <div class="flex flex-col items-center">
                     <div class="w-40 h-40 mb-8 rounded-full card-gradient-border p-1 animate-pulse-slow">
-                        <img src="uploaded:WhatsApp Image 2025-10-13 at 13.36.08.jpeg-f2af6202-5e97-41d4-8cef-be39b4fe656c" 
+                        <!-- UPDATED IMAGE SOURCE TO EXTERNAL GITHUB URL -->
+                        <img src="https://raw.githubusercontent.com/Herman-BK/graph-ai-portfolio/main/HB.jpeg" 
                              alt="Herman Banza Kongolo Profile" 
                              class="w-full h-full object-cover rounded-full border-4 border-ai-dark">
                     </div>
@@ -127,7 +128,7 @@
                     <!-- Left Column: Primary Narrative -->
                     <div class="space-y-6 text-lg text-gray-300 p-6 rounded-xl bg-gray-800/40 border border-gray-700/50">
                         <p class="text-xl font-semibold text-ai-teal">Bridging Public Health, Geospatial Science, and AI</p>
-                        <p>I am a dedicated **PhD Candidate in Epidemiology and Public Health** at Paris-Cité and Sorbonne University, with a core focus on harnessing data for tangible health outcomes. My background as a **Remote Sensing and GIS project manager**, **Forest & Landscape advisor** and an **Agronomist Engineer**  allows me to bring a unique, spatial perspective to resource management and disease dynamics.</p>
+                        <p>I am a dedicated **PhD Candidate in Epidemiology and Public Health** at Paris-Cité and Sorbonne University, with a core focus on harnessing data for tangible health outcomes. My background as a **Remote Sensing and GIS project manager**, **Forest & Landscape advisor** and an **Agronomist Engineer** allows me to bring a unique, spatial perspective to resource management and disease dynamics.</p>
                         <p>My work involves complex geospatial and time-series analyses to assess health access, model spatial distribution, and track temporal trends of diseases. I utilize advanced mathematical probabilistic models and am proficient in **Python, R, and JavaScript** for coding and workflow automation.</p>
                         <p>Currently, I am focused on leveraging **Generative AI for Work & Research Productivity**, aiming to automate repetitive tasks, accelerate literature reviews, and enhance scientific communication, making complex research workflows more efficient.</p>
                     </div>
@@ -361,6 +362,7 @@
             console.log('Contact Form submitted (simulated). Data captured:');
             console.log({
                 name: document.getElementById('name').value,
+                organization: document.getElementById('organization').value, // Added organization field
                 subject: document.getElementById('subject').value,
                 message: document.getElementById('message').value
             });
