@@ -331,20 +331,21 @@
                     <script>
                         // Submission data based on course modules
                         const submissions = [
-                            { week: 1, title: 'Websites, Documents & Presentations', description: 'Generating structured outputs (Markdown, LaTeX, HTML) and building no-code research websites.' },
-                            { week: 2, title: 'AI-Automated Data Analysis', description: 'Mastering data processing, visualization, and automated report generation using AI tools like Code Interpreter.' },
-                            { week: 3, title: 'GenAI for Research & Text Analysis', description: 'Implementing efficient literature review strategies, text classification, and knowledge mapping.' },
-                            { week: 4, title: 'Custom GPTs and Chatbots', description: 'Building domain-specific research assistants using RAG and advanced LLM architecture.' },
-                            { week: 5, title: 'AI for Task Automation', description: 'Designing agent-based systems for literature monitoring and orchestrating complex automation flows.' },
-                            { week: 6, title: 'GenAI for Communication and Outreach', description: 'Creating AI-generated scientific figures, video abstracts, and content scheduling for research dissemination.' },
-                            { week: 7, title: 'Capstone Project Refinement', description: 'Collaborative peer feedback and technical troubleshooting sessions for the final AI solution.' },
-                            { week: 8, title: 'Final Project Presentation & Showcase', description: 'The final presentation of the comprehensive AI solution/tool developed during the course.' },
+                            { week: 1, title: 'Websites, Documents & Presentations', description: 'Generating structured outputs (Markdown, LaTeX, HTML) and building no-code research websites.', link: '#' },
+                            { week: 2, title: 'AI-Automated Data Analysis', description: 'Mastering data processing, visualization, and automated report generation using AI tools like Code Interpreter.', link: 'https://github.com/Herman-BK/graph-ai-portfolio/blob/main/data_report.pdf' },
+                            { week: 3, title: 'GenAI for Research & Text Analysis', description: 'Implementing efficient literature review strategies, text classification, and knowledge mapping.', link: '#' },
+                            { week: 4, title: 'Custom GPTs and Chatbots', description: 'Building domain-specific research assistants using RAG and advanced LLM architecture.', link: '#' },
+                            { week: 5, title: 'AI for Task Automation', description: 'Designing agent-based systems for literature monitoring and orchestrating complex automation flows.', link: '#' },
+                            { week: 6, title: 'GenAI for Communication and Outreach', description: 'Creating AI-generated scientific figures, video abstracts, and content scheduling for research dissemination.', link: '#' },
+                            { week: 7, title: 'Capstone Project Refinement', description: 'Collaborative peer feedback and technical troubleshooting sessions for the final AI solution.', link: '#' },
+                            { week: 8, title: 'Final Project Presentation & Showcase', description: 'The final presentation of the comprehensive AI solution/tool developed during the course.', link: '#' },
                         ];
 
                         document.addEventListener('DOMContentLoaded', () => {
                             const container = document.getElementById('submissions-grid');
                             if (container) {
                                 submissions.forEach(sub => {
+                                    const isLinked = sub.link && sub.link !== '#';
                                     const card = document.createElement('div');
                                     card.className = 'card-gradient-border';
                                     card.innerHTML = `
@@ -352,14 +353,18 @@
                                             <div class="flex items-center justify-between mb-2">
                                                 <!-- Professional Pill Badge for Week -->
                                                 <div class="text-sm font-bold text-primary-blue border border-primary-blue px-3 py-1 rounded-full">Week ${sub.week}</div>
-                                                <!-- Link Status Badge -->
+                                                <!-- Link Status Badge (Updated logic) -->
                                                 <div class="text-xs font-light text-text-muted">
-                                                    <span class="animate-pulse bg-primary-blue text-white px-2 py-0.5 rounded-full font-medium tracking-wider">PENDING</span>
+                                                    <span class="${isLinked ? 'bg-green-600' : 'animate-pulse bg-primary-blue'} text-white px-2 py-0.5 rounded-full font-medium tracking-wider">
+                                                        ${isLinked ? 'LINKED' : 'PENDING'}
+                                                    </span>
                                                 </div>
                                             </div>
                                             <h3 class="text-xl font-semibold text-text-dark">${sub.title}</h3>
                                             <p class="text-text-muted text-sm">${sub.description}</p>
-                                            <a href="#" class="inline-block mt-3 text-text-dark hover:text-primary-blue font-semibold transition-colors text-sm underline">View Submission (TBD) &rarr;</a>
+                                            <a href="${sub.link}" target="_blank" class="inline-block mt-3 text-text-dark hover:text-primary-blue font-semibold transition-colors text-sm underline ${isLinked ? '' : 'pointer-events-none opacity-50'}">
+                                                View Submission ${isLinked ? ' &rarr;' : '(TBD) &rarr;'}
+                                            </a>
                                         </div>
                                     `;
                                     container.appendChild(card);
