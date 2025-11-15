@@ -1,471 +1,451 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Herman B. | Generative AI Portfolio</title>
-    <!-- Load Tailwind CSS via CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Configure Tailwind for custom colors and Inter font -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herman B. | Generative AI Portfolio</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Nouvelle palette : Deep Navy Blue (#003366) pour le professionnalisme
+                        'main-bg': '#f5f5f5', // Très léger fond
+                        'primary-blue': '#003366', // La nouvelle couleur principale (Bleu Nuit)
+                        'text-dark': '#1e1e1e', // Texte très foncé
+                        'text-muted': '#666666', // Texte gris atténué
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        // Removed pulse-slow animation for the cleaner aesthetic
+                    }
+                }
+            }
+        }
+    </script>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles for smooth scrolling and header opacity */
+        html {
+            scroll-behavior: smooth;
+        }
+        .section-bg {
+            /* Changed from dark background to light gray */
+            background-color: #f5f5f5;
+            position: relative;
+            overflow: hidden;
+        }
+        /* Remove previous gradient overlays */
+        .gradient-overlay-top, .gradient-overlay-bottom {
+            display: none;
+        }
+        .card-gradient-border {
+            /* Refined card styling: Flat white background with a subtle shadow for elevation */
+            position: relative;
+            padding: 0; 
+            border-radius: 10px; /* Slightly larger radius for elegance */
+            border: 1px solid #eeeeee; /* Lighter border */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Subtle default shadow */
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .card-gradient-border:hover {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Elegant lift on hover */
+            transform: translateY(-2px);
+        }
+        .card-gradient-border > div {
+            border-radius: 10px;
+            background-color: white; /* White interior for high contrast */
+            padding: 2.5rem; /* Increased padding for more space */
+        }
+        /* Custom class for the deep navy header (primary-blue) */
+        .header-blue-bg {
+            background-color: #003366;
+        }
+        
+        /* Custom Hero Layout Styles - Now single column, centered */
+        .hero-centered {
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+            text-align: center;
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+            min-height: 80vh;
+        }
+        @media (max-width: 768px) {
+            .hero-centered {
+                min-height: unset;
+                padding-top: 3rem;
+                padding-bottom: 3rem;
+            }
+        }
+        
+        /* Custom border for the profile photo */
+        .profile-photo-container {
+            border: 8px solid white; 
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); 
+            border-radius: 50%; /* Rendre le conteneur rond */
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out;
+            /* Defined size for consistency in center layout */
+            width: 200px; 
+            height: 200px;
+        }
+        .profile-photo-container:hover {
+            transform: scale(1.02);
+        }
+
+        /* Appliquer border-radius: 50% également à l'image elle-même */
+        .profile-photo-container img {
+            border-radius: 50%; 
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+    </style>
+    <script src="https://cdn.botpress.cloud/webchat/v3.4/inject.js"></script>
+    <script src="https://mediafiles.botpress.cloud/2025/11/15/20251115195334-M6GY3S1W.json"></script>
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        // Nouvelle palette : Deep Navy Blue (#003366) pour le professionnalisme
-                        'main-bg': '#f5f5f5', // Très léger fond
-                        'primary-blue': '#003366', // La nouvelle couleur principale (Bleu Nuit)
-                        'text-dark': '#1e1e1e', // Texte très foncé
-                        'text-muted': '#666666', // Texte gris atténué
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                    animation: {
-                        // Removed pulse-slow animation for the cleaner aesthetic
-                    }
-                }
-            }
-        }
+        window.botpressWebChat.init({
+            "configUrl": "https://files.bpcontent.cloud/2025/11/15/19/20251115195334-M6GY3S1W.json"
+        });
     </script>
-    <!-- Add Inter font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-    <style>
-        /* Custom styles for smooth scrolling and header opacity */
-        html {
-            scroll-behavior: smooth;
-        }
-        .section-bg {
-            /* Changed from dark background to light gray */
-            background-color: #f5f5f5;
-            position: relative;
-            overflow: hidden;
-        }
-        /* Remove previous gradient overlays */
-        .gradient-overlay-top, .gradient-overlay-bottom {
-            display: none;
-        }
-        .card-gradient-border {
-            /* Refined card styling: Flat white background with a subtle shadow for elevation */
-            position: relative;
-            padding: 0; 
-            border-radius: 10px; /* Slightly larger radius for elegance */
-            border: 1px solid #eeeeee; /* Lighter border */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Subtle default shadow */
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-        }
-        .card-gradient-border:hover {
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Elegant lift on hover */
-            transform: translateY(-2px);
-        }
-        .card-gradient-border > div {
-            border-radius: 10px;
-            background-color: white; /* White interior for high contrast */
-            padding: 2.5rem; /* Increased padding for more space */
-        }
-        /* Custom class for the deep navy header (primary-blue) */
-        .header-blue-bg {
-            background-color: #003366;
-        }
-        
-        /* Custom Hero Layout Styles - Now single column, centered */
-        .hero-centered {
-            display: flex;
-            flex-direction: column;
-            align-items: center; 
-            text-align: center;
-            padding-top: 5rem;
-            padding-bottom: 5rem;
-            min-height: 80vh;
-        }
-        @media (max-width: 768px) {
-            .hero-centered {
-                min-height: unset;
-                padding-top: 3rem;
-                padding-bottom: 3rem;
-            }
-        }
-        
-        /* Custom border for the profile photo */
-        .profile-photo-container {
-            border: 8px solid white; 
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); 
-            border-radius: 50%; /* Rendre le conteneur rond */
-            overflow: hidden;
-            transition: transform 0.3s ease-in-out;
-            /* Defined size for consistency in center layout */
-            width: 200px; 
-            height: 200px;
-        }
-        .profile-photo-container:hover {
-            transform: scale(1.02);
-        }
-
-        /* Appliquer border-radius: 50% également à l'image elle-même */
-        .profile-photo-container img {
-            border-radius: 50%; 
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-    </style>
 </head>
 
 <body class="bg-main-bg text-text-dark font-sans">
 
-    <!-- Header & Navigation -->
-    <header class="sticky top-0 z-50 header-blue-bg shadow-xl">
-        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-            <div class="flex justify-between items-center">
-                <a href="#hero" class="text-2xl font-extrabold text-white tracking-tight hover:text-white transition-colors">
-                    HERMAN B. <span class="text-sm font-normal ml-2 opacity-80">| AI PORTFOLIO</span>
-                </a>
-                <div class="hidden md:flex space-x-8 text-lg">
-                    <a href="#about" class="text-white opacity-80 hover:opacity-100 transition-opacity">About</a>
-                    <a href="#course" class="text-white opacity-80 hover:opacity-100 transition-opacity">Course</a>
-                    <a href="#submissions" class="text-white opacity-80 hover:opacity-100 transition-opacity">Submissions</a>
-                    <a href="#contact" class="text-white opacity-80 hover:opacity-100 transition-opacity">Work with Me</a>
-                </div>
-                <!-- Mobile Menu Button - Left as placeholder for full mobile implementation -->
-            </div>
-        </nav>
-    </header>
+        <header class="sticky top-0 z-50 header-blue-bg shadow-xl">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div class="flex justify-between items-center">
+                <a href="#hero" class="text-2xl font-extrabold text-white tracking-tight hover:text-white transition-colors">
+                    HERMAN B. <span class="text-sm font-normal ml-2 opacity-80">| AI PORTFOLIO</span>
+                </a>
+                <div class="hidden md:flex space-x-8 text-lg">
+                    <a href="#about" class="text-white opacity-80 hover:opacity-100 transition-opacity">About</a>
+                    <a href="#course" class="text-white opacity-80 hover:opacity-100 transition-opacity">Course</a>
+                    <a href="#submissions" class="text-white opacity-80 hover:opacity-100 transition-opacity">Submissions</a>
+                    <a href="#contact" class="text-white opacity-80 hover:opacity-100 transition-opacity">Work with Me</a>
+                </div>
+                            </div>
+        </nav>
+    </header>
 
-    <main>
-        <!-- HERO Section -->
-        <section id="hero" class="section-bg pt-0 pb-0">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 hero-centered">
+    <main>
+                <section id="hero" class="section-bg pt-0 pb-0">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 hero-centered">
 
-                <!-- Profile Image (Centré en haut) -->
-                <div class="mb-8 mt-12">
-                    <div class="profile-photo-container">
-                         <img src="https://raw.githubusercontent.com/Herman-BK/graph-ai-portfolio/main/HB.jpeg" 
-                             alt="Herman Banza Kongolo Profile">
-                    </div>
-                </div>
+                                <div class="mb-8 mt-12">
+                    <div class="profile-photo-container">
+                         <img src="https://raw.githubusercontent.com/Herman-BK/graph-ai-portfolio/main/HB.jpeg" 
+                             alt="Herman Banza Kongolo Profile">
+                    </div>
+                </div>
 
-                <!-- Presentation Text (Centré en dessous) -->
-                <div class="space-y-6 max-w-4xl">
-                    <p class="text-primary-blue text-xl font-semibold mb-3 tracking-wider uppercase">Generative AI for Work & Research Productivity</p>
-                    
-                    <!-- Professional Background Headline for maximum impact -->
-                    <h1 class="text-5xl sm:text-6xl font-extrabold text-text-dark leading-tight mb-4">
-                        GenAI & <span class="text-primary-blue">GEOSPATIAL DATA</span> RESEARCHER
-                    </h1>
+                                <div class="space-y-6 max-w-4xl">
+                    <p class="text-primary-blue text-xl font-semibold mb-3 tracking-wider uppercase">Generative AI for Work & Research Productivity</p>
+                    
+                                        <h1 class="text-5xl sm:text-6xl font-extrabold text-text-dark leading-tight mb-4">
+                        GenAI & <span class="text-primary-blue">GEOSPATIAL DATA</span> RESEARCHER
+                    </h1>
 
-                    <!-- Short presentation unified into one professional paragraph -->
-                    <p class="text-3xl font-light text-text-dark leading-snug mx-auto">
-                       I apply advanced Geospatial Data Analysis and AI automation to solve complex challenges in work and scientific research.
-                    </p>
-                    
-                    <div class="pt-8">
-                        <!-- CTA Button (Enhanced hover for professionalism) -->
-                        <a href="#contact" 
-                            class="inline-block bg-primary-blue text-white text-xl font-bold py-4 px-10 rounded-lg shadow-xl hover:bg-blue-800 transition-colors duration-300 transform hover:scale-[1.01] uppercase tracking-wide">
-                            Work With Me &rarr;
-                        </a>
-                        <a href="https://linkedin.com/in/hermankongolo" target="_blank" class="ml-6 text-text-muted hover:text-primary-blue transition-colors flex items-center justify-center space-x-3 md:inline-flex md:justify-start mt-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.518-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                            <span class="text-xl font-medium">Connect on LinkedIn</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- ABOUT ME Section -->
-        <section id="about" class="section-bg py-24">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-4xl font-extrabold text-center text-text-dark mb-16">About My Work & Background</h2>
-                
-                <div class="grid lg:grid-cols-3 gap-10 items-start">
-                    
-                    <!-- Major Narrative / Summary Block (Enhanced Padding) -->
-                    <div class="lg:col-span-1 space-y-6 text-lg text-text-muted p-8 rounded-xl bg-white border border-gray-200 shadow-md h-full card-gradient-border hover:transform-none">
-                        <p class="text-xl font-semibold text-primary-blue">Bridging Scientific Research, Geospatial Data, and AI</p>
-                        <p>I transform complex data into strategic, actionable insights, particularly in the fields of Natural Ressources Management and Public Health. I combine rigorous academic training in Geospatial Project Management, Natural Ressources Management and Epidemiology with practical expertise in AI automation to develop solutions that have measurable real-world impact.</p>
-                        <p>I am proficient in **Python and R** and leverage specialized tools (like Google Earth Engine, ArcGIS, QGIS and Web GIS) to model complex phenomena, such as disease dynamics and land-use changes.</p>
-                    </div>
-                    
-                    <!-- Sub-sections: Current Role, Education, Highlight -->
-                    <div class="lg:col-span-2 grid md:grid-cols-2 gap-8">
-                        
-                        <!-- Current Role -->
-                        <div class="card-gradient-border">
-                            <div class="bg-white p-6 space-y-3 h-full">
-                                <h3 class="text-2xl font-bold text-primary-blue mb-2">Current Role & Focus</h3>
-                                <p class="text-lg text-text-dark font-medium">
-                                    **PhD Candidate** in Epidemiology and Public Health (Sorbonne/Paris-Cité University)
-                                </p>
-                                <ul class="list-disc list-inside space-y-2 text-text-muted pl-4">
-                                    <li>**Core Focus:** Geospatial Health Analysis, Disease Dynamics (e.g., Rabies Modeling).</li>
-                                    <li>**AI Integration:** Automating complex research workflows (data cleaning, analysis, reporting).</li>
-                                    <li>**Approach:** One Health perspective, integrating environmental and human data.</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <!-- Education -->
-                        <div class="card-gradient-border">
-                            <div class="bg-white p-6 space-y-3 h-full">
-                                <h3 class="text-2xl font-bold text-primary-blue mb-2">Key Education</h3>
-                                <ul class="list-disc list-inside space-y-3 text-text-muted pl-4">
-                                    <li>**Epidemiology and Public Health Ph.D.** (Since 2022) - Paris-Cité University.</li>
-                                    <li>**Geomatics Project Manager (Specialised Master SILAT)** (2021-2022) - AgroParisTech.</li>
-                                    <li>**Agronomist Engineer (Bac+5)** (2009-2014) - University of Lubumbashi.</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <!-- Recent Work Highlight (UPDATED TO TEMPO PROJECT) -->
-                        <div class="card-gradient-border md:col-span-2">
-                             <div class="bg-white p-6 space-y-3">
-                                <h3 class="text-2xl font-bold text-primary-blue mb-2">Recent Work Highlight: Web GIS Development (TEMPO Project)</h3>
-                                <p class="text-lg text-text-dark font-medium">
-                                    Geomatics Project Manager (AgroParisTech & CIRAD, 2022)
-                                </p>
-                                <ul class="list-disc list-inside space-y-2 text-text-muted pl-4">
-                                    <li>**Objective:** Developed an interactive **Web GIS narrative map (Story Mapping)** for the TEMPO project (Remote Sensing and Spatial Modeling of Animal Mobility).</li>
-                                    <li>**Focus:** Risk management of infectious disease transmission in Southern Africa (Zimbabwe).</li>
-                                    <li>**Key Skill:** Utilized advanced geospatial data to create accessible, visual tools for non-expert stakeholders and decision-makers.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Technical Expertise (Cleaned up font weights) -->
-                    <div class="card-gradient-border lg:col-span-3 mt-4">
-                         <div class="bg-white p-6 space-y-3">
-                            <h3 class="text-2xl font-bold text-text-dark mb-4 text-primary-blue">Technical Expertise Summary</h3>
-                            <div class="grid sm:grid-cols-3 gap-6 text-text-muted text-lg">
-                                <div>
-                                    <p class="font-bold text-text-dark">Coding & Automation</p>
-                                    <p>Python, R, JavaScript, Docker Compose</p>
-                                
-                                </div>
-                                <div>
-                                    <p class="font-bold text-text-dark">Geospatial & Modeling</p>
-                                    <p>QGIS, ArcGIS, **Google Earth Engine (GEE)**, Web GIS (Leaflet, Lizmap)</p>
-                                </div>
-                                <div>
-                                    <p class="font-bold text-text-dark">Data Analysis & Databases</p>
-                                    <p>Statistics, PostgreSQL/PostGIS, Time-Series & Spatial Modeling</p>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+                                        <p class="text-3xl font-light text-text-dark leading-snug mx-auto">
+                       I apply advanced Geospatial Data Analysis and AI automation to solve complex challenges in work and scientific research.
+                    </p>
+                    
+                    <div class="pt-8">
+                                                <a href="#contact" 
+                            class="inline-block bg-primary-blue text-white text-xl font-bold py-4 px-10 rounded-lg shadow-xl hover:bg-blue-800 transition-colors duration-300 transform hover:scale-[1.01] uppercase tracking-wide">
+                            Work With Me &rarr;
+                        </a>
+                        <a href="https://linkedin.com/in/hermankongolo" target="_blank" class="ml-6 text-text-muted hover:text-primary-blue transition-colors flex items-center justify-center space-x-3 md:inline-flex md:justify-start mt-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.518-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                            <span class="text-xl font-medium">Connect on LinkedIn</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+                <section id="about" class="section-bg py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-extrabold text-center text-text-dark mb-16">About My Work & Background</h2>
+                
+                <div class="grid lg:grid-cols-3 gap-10 items-start">
+                    
+                                        <div class="lg:col-span-1 space-y-6 text-lg text-text-muted p-8 rounded-xl bg-white border border-gray-200 shadow-md h-full card-gradient-border hover:transform-none">
+                        <p class="text-xl font-semibold text-primary-blue">Bridging Scientific Research, Geospatial Data, and AI</p>
+                        <p>I transform complex data into strategic, actionable insights, particularly in the fields of Natural Ressources Management and Public Health. I combine rigorous academic training in Geospatial Project Management, Natural Ressources Management and Epidemiology with practical expertise in AI automation to develop solutions that have measurable real-world impact.</p>
+                        <p>I am proficient in **Python and R** and leverage specialized tools (like Google Earth Engine, ArcGIS, QGIS and Web GIS) to model complex phenomena, such as disease dynamics and land-use changes.</p>
+                    </div>
+                    
+                                        <div class="lg:col-span-2 grid md:grid-cols-2 gap-8">
+                        
+                                                <div class="card-gradient-border">
+                            <div class="bg-white p-6 space-y-3 h-full">
+                                <h3 class="text-2xl font-bold text-primary-blue mb-2">Current Role & Focus</h3>
+                                <p class="text-lg text-text-dark font-medium">
+                                    **PhD Candidate** in Epidemiology and Public Health (Sorbonne/Paris-Cité University)
+                                </p>
+                                <ul class="list-disc list-inside space-y-2 text-text-muted pl-4">
+                                    <li>**Core Focus:** Geospatial Health Analysis, Disease Dynamics (e.g., Rabies Modeling).</li>
+                                    <li>**AI Integration:** Automating complex research workflows (data cleaning, analysis, reporting).</li>
+                                    <li>**Approach:** One Health perspective, integrating environmental and human data.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                                                <div class="card-gradient-border">
+                            <div class="bg-white p-6 space-y-3 h-full">
+                                <h3 class="text-2xl font-bold text-primary-blue mb-2">Key Education</h3>
+                                <ul class="list-disc list-inside space-y-3 text-text-muted pl-4">
+                                    <li>**Epidemiology and Public Health Ph.D.** (Since 2022) - Paris-Cité University.</li>
+                                    <li>**Geomatics Project Manager (Specialised Master SILAT)** (2021-2022) - AgroParisTech.</li>
+                                    <li>**Agronomist Engineer (Bac+5)** (2009-2014) - University of Lubumbashi.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                                                <div class="card-gradient-border md:col-span-2">
+                             <div class="bg-white p-6 space-y-3">
+                                <h3 class="text-2xl font-bold text-primary-blue mb-2">Recent Work Highlight: Web GIS Development (TEMPO Project)</h3>
+                                <p class="text-lg text-text-dark font-medium">
+                                    Geomatics Project Manager (AgroParisTech & CIRAD, 2022)
+                                </p>
+                                <ul class="list-disc list-inside space-y-2 text-text-muted pl-4">
+                                    <li>**Objective:** Developed an interactive **Web GIS narrative map (Story Mapping)** for the TEMPO project (Remote Sensing and Spatial Modeling of Animal Mobility).</li>
+                                    <li>**Focus:** Risk management of infectious disease transmission in Southern Africa (Zimbabwe).</li>
+                                    <li>**Key Skill:** Utilized advanced geospatial data to create accessible, visual tools for non-expert stakeholders and decision-makers.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                                        <div class="card-gradient-border lg:col-span-3 mt-4">
+                         <div class="bg-white p-6 space-y-3">
+                            <h3 class="text-2xl font-bold text-text-dark mb-4 text-primary-blue">Technical Expertise Summary</h3>
+                            <div class="grid sm:grid-cols-3 gap-6 text-text-muted text-lg">
+                                <div>
+                                    <p class="font-bold text-text-dark">Coding & Automation</p>
+                                    <p>Python, R, JavaScript, Docker Compose</p>
+                                
+                                </div>
+                                <div>
+                                    <p class="font-bold text-text-dark">Geospatial & Modeling</p>
+                                    <p>QGIS, ArcGIS, **Google Earth Engine (GEE)**, Web GIS (Leaflet, Lizmap)</p>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-text-dark">Data Analysis & Databases</p>
+                                    <p>Statistics, PostgreSQL/PostGIS, Time-Series & Spatial Modeling</p>
+                                    
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <!-- ABOUT THE COURSE Section -->
-        <section id="course" class="section-bg py-24">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <h2 class="text-4xl font-extrabold text-center text-text-dark mb-16">The "Generative AI for Work & Research" Course</h2>
+                <section id="course" class="section-bg py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <h2 class="text-4xl font-extrabold text-center text-text-dark mb-16">The "Generative AI for Work & Research" Course</h2>
 
-                <div class="card-gradient-border max-w-5xl mx-auto shadow-lg">
-                    <div class="bg-white p-8 sm:p-12 space-y-8">
-                        <h3 class="text-3xl font-bold text-text-dark text-center">
-                            Generative AI for Work & Research Productivity: No-Code AI Tools for Task Automation
-                        </h3>
-                        <p class="text-xl text-text-muted text-center border-b border-gray-300 pb-6 font-normal">
-                            An intensive **8-week Live Cohort Course** focused on mastering AI solutions to significantly boost productivity in scientific and professional environments.
-                        </p>
+                <div class="card-gradient-border max-w-5xl mx-auto shadow-lg">
+                    <div class="bg-white p-8 sm:p-12 space-y-8">
+                        <h3 class="text-3xl font-bold text-text-dark text-center">
+                            Generative AI for Work & Research Productivity: No-Code AI Tools for Task Automation
+                        </h3>
+                        <p class="text-xl text-text-muted text-center border-b border-gray-300 pb-6 font-normal">
+                            An intensive **8-week Live Cohort Course** focused on mastering AI solutions to significantly boost productivity in scientific and professional environments.
+                        </p>
 
-                        <div class="grid md:grid-cols-2 gap-8 text-text-muted">
-                            <div>
-                                <h4 class="text-2xl font-bold text-primary-blue mb-4 border-b border-primary-blue/50 pb-2">Core Focus Areas</h4>
-                                <ul class="space-y-3 text-lg">
-                                    <li class="flex items-start">
-                                        <span class="mr-2 text-primary-blue text-2xl">•</span>
-                                        **LLM Fundamentals:** Understanding how Large Language Models (LLMs) are trained and function.
-                                    </li>
-                                    <li class="flex items-start">
-                                        <span class="mr-2 text-primary-blue text-2xl">•</span>
-                                        **No-Code Automation:** Implementing tools like Julius, ChatGPT Code Interpreter, and Botpress for complex workflows.
-                                    </li>
-                                    <li class="flex items-start">
-                                        <span class="mr-2 text-primary-blue text-2xl">•</span>
-                                        **Research Synthesis:** Accelerating literature reviews and creating knowledge maps from large text collections (Elicit, LiteRev).
-                                    </li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h4 class="text-2xl font-bold text-primary-blue mb-4 border-b border-primary-blue/50 pb-2">Course Modules Overview</h4>
-                                <ul class="space-y-3 text-lg">
-                                    <li class="flex items-start">
-                                        <span class="mr-2 text-text-dark text-xl">•</span> **Websites, Documents & Presentations** (Module 1)
-                                    </li>
-                                    <li class="flex items-start">
-                                        <span class="mr-2 text-text-dark text-xl">•</span> **AI-Automated Data Analysis** (Module 2)
-                                    </li>
-                                    <li class="flex items-start">
-                                        <span class="mr-2 text-text-dark text-xl">•</span> **GenAI for Research & Text Analysis** (Module 3)
-                                    </li>
-                                    <li class="flex items-start">
-                                        <span class="mr-2 text-text-dark text-xl">•</span> Custom GPTs and Chatbots (Module 4)
-                                    </li>
-                                    <li class="flex items-start">
-                                        <span class="mr-2 text-text-dark text-xl">•</span> AI for Task Automation (Module 5)
-                                    </li>
-                                    <li class="flex items-start">
-                                        <span class="mr-2 text-text-dark text-xl">•</span> GenAI for Communication and Outreach (Module 6)
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+                        <div class="grid md:grid-cols-2 gap-8 text-text-muted">
+                            <div>
+                                <h4 class="text-2xl font-bold text-primary-blue mb-4 border-b border-primary-blue/50 pb-2">Core Focus Areas</h4>
+                                <ul class="space-y-3 text-lg">
+                                    <li class="flex items-start">
+                                        <span class="mr-2 text-primary-blue text-2xl">•</span>
+                                        **LLM Fundamentals:** Understanding how Large Language Models (LLMs) are trained and function.
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="mr-2 text-primary-blue text-2xl">•</span>
+                                        **No-Code Automation:** Implementing tools like Julius, ChatGPT Code Interpreter, and Botpress for complex workflows.
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="mr-2 text-primary-blue text-2xl">•</span>
+                                        **Research Synthesis:** Accelerating literature reviews and creating knowledge maps from large text collections (Elicit, LiteRev).
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="text-2xl font-bold text-primary-blue mb-4 border-b border-primary-blue/50 pb-2">Course Modules Overview</h4>
+                                <ul class="space-y-3 text-lg">
+                                    <li class="flex items-start">
+                                        <span class="mr-2 text-text-dark text-xl">•</span> **Websites, Documents & Presentations** (Module 1)
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="mr-2 text-text-dark text-xl">•</span> **AI-Automated Data Analysis** (Module 2)
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="mr-2 text-text-dark text-xl">•</span> **GenAI for Research & Text Analysis** (Module 3)
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="mr-2 text-text-dark text-xl">•</span> Custom GPTs and Chatbots (Module 4)
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="mr-2 text-text-dark text-xl">•</span> AI for Task Automation (Module 5)
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="mr-2 text-text-dark text-xl">•</span> GenAI for Communication and Outreach (Module 6)
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <!-- MY WEEKLY SUBMISSIONS Section -->
-        <section id="submissions" class="section-bg py-24">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-4xl font-extrabold text-center text-text-dark mb-16">My Weekly Submissions</h2>
+                <section id="submissions" class="section-bg py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-extrabold text-center text-text-dark mb-16">My Weekly Submissions</h2>
 
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <!-- Submission Card Component -->
-                    <script>
-                        // Submission data based on course modules
-                        const submissions = [
-                            { week: 1, title: 'Websites, Documents & Presentations', description: 'Generating structured outputs (Markdown, LaTeX, HTML) and building no-code research websites.', link: '#' },
-                            { week: 2, title: 'AI-Automated Data Analysis', description: 'Mastering data processing, visualization, and automated report generation using AI tools like Code Interpreter.', link: 'https://github.com/Herman-BK/graph-ai-portfolio/blob/main/data_report.pdf' },
-                            { week: 3, title: 'GenAI for Research & Text Analysis', description: 'Implementing efficient literature review strategies, text classification, and knowledge mapping.', link: 'https://github.com/Herman-BK/graph-ai-portfolio/blob/main/job_market_analysis.pdf' },
-                            { week: 4, title: 'Custom GPTs and Chatbots', description: 'Building domain-specific research assistants using RAG and advanced LLM architecture.', link: '#' },
-                            { week: 5, title: 'AI for Task Automation', description: 'Designing agent-based systems for literature monitoring and orchestrating complex automation flows.', link: '#' },
-                            { week: 6, title: 'GenAI for Communication and Outreach', description: 'Creating AI-generated scientific figures, video abstracts, and content scheduling for research dissemination.', link: '#' },
-                            { week: 7, title: 'Capstone Project Refinement', description: 'Collaborative peer feedback and technical troubleshooting sessions for the final AI solution.', link: '#' },
-                            { week: 8, title: 'Final Project Presentation & Showcase', description: 'The final presentation of the comprehensive AI solution/tool developed during the course.', link: '#' },
-                        ];
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                                        <script>
+                        // Submission data based on course modules
+                        const submissions = [
+                            { week: 1, title: 'Websites, Documents & Presentations', description: 'Generating structured outputs (Markdown, LaTeX, HTML) and building no-code research websites.', link: '#' },
+                            { week: 2, title: 'AI-Automated Data Analysis', description: 'Mastering data processing, visualization, and automated report generation using AI tools like Code Interpreter.', link: 'https://github.com/Herman-BK/graph-ai-portfolio/blob/main/data_report.pdf' },
+                            { week: 3, title: 'GenAI for Research & Text Analysis', description: 'Implementing efficient literature review strategies, text classification, and knowledge mapping.', link: 'https://github.com/Herman-BK/graph-ai-portfolio/blob/main/job_market_analysis.pdf' },
+                            { week: 4, title: 'Custom GPTs and Chatbots', description: 'Building domain-specific research assistants using RAG and advanced LLM architecture.', link: '#' },
+                            { week: 5, title: 'AI for Task Automation', description: 'Designing agent-based systems for literature monitoring and orchestrating complex automation flows.', link: '#' },
+                            { week: 6, title: 'GenAI for Communication and Outreach', description: 'Creating AI-generated scientific figures, video abstracts, and content scheduling for research dissemination.', link: '#' },
+                            { week: 7, title: 'Capstone Project Refinement', description: 'Collaborative peer feedback and technical troubleshooting sessions for the final AI solution.', link: '#' },
+                            { week: 8, title: 'Final Project Presentation & Showcase', description: 'The final presentation of the comprehensive AI solution/tool developed during the course.', link: '#' },
+                        ];
 
-                        document.addEventListener('DOMContentLoaded', () => {
-                            const container = document.getElementById('submissions-grid');
-                            if (container) {
-                                submissions.forEach(sub => {
-                                    const isLinked = sub.link && sub.link !== '#';
-                                    const card = document.createElement('div');
-                                    card.className = 'card-gradient-border';
-                                    card.innerHTML = `
-                                        <div class="bg-white p-6 h-full transition-all duration-300 hover:bg-gray-50 hover:shadow-lg space-y-3">
-                                            <div class="flex items-center justify-between mb-2">
-                                                <!-- Professional Pill Badge for Week -->
-                                                <div class="text-sm font-bold text-primary-blue border border-primary-blue px-3 py-1 rounded-full">Week ${sub.week}</div>
-                                                <!-- Link Status Badge (Updated logic) -->
-                                                <div class="text-xs font-light text-text-muted">
-                                                    <span class="${isLinked ? 'bg-green-600' : 'animate-pulse bg-primary-blue'} text-white px-2 py-0.5 rounded-full font-medium tracking-wider">
-                                                        ${isLinked ? 'LINKED' : 'PENDING'}
-                                                    </span>
-                                                </div>
-                                            </div>
-                                            <h3 class="text-xl font-semibold text-text-dark">${sub.title}</h3>
-                                            <p class="text-text-muted text-sm">${sub.description}</p>
-                                            <a href="${sub.link}" target="_blank" class="inline-block mt-3 text-text-dark hover:text-primary-blue font-semibold transition-colors text-sm underline ${isLinked ? '' : 'pointer-events-none opacity-50'}">
-                                                View Submission ${isLinked ? ' &rarr;' : '(TBD) &rarr;'}
-                                            </a>
-                                        </div>
-                                    `;
-                                    container.appendChild(card);
-                                });
-                            }
-                        });
-                    </script>
-                    
-                    <div id="submissions-grid" class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 col-span-full">
-                        <!-- Cards will be injected here by JavaScript -->
-                    </div>
-                </div>
-            </div>
-        </section>
+                        document.addEventListener('DOMContentLoaded', () => {
+                            const container = document.getElementById('submissions-grid');
+                            if (container) {
+                                submissions.forEach(sub => {
+                                    const isLinked = sub.link && sub.link !== '#';
+                                    const card = document.createElement('div');
+                                    card.className = 'card-gradient-border';
+                                    card.innerHTML = `
+                                        <div class="bg-white p-6 h-full transition-all duration-300 hover:bg-gray-50 hover:shadow-lg space-y-3">
+                                            <div class="flex items-center justify-between mb-2">
+                                                                                                <div class="text-sm font-bold text-primary-blue border border-primary-blue px-3 py-1 rounded-full">Week ${sub.week}</div>
+                                                                                                <div class="text-xs font-light text-text-muted">
+                                                    <span class="${isLinked ? 'bg-green-600' : 'animate-pulse bg-primary-blue'} text-white px-2 py-0.5 rounded-full font-medium tracking-wider">
+                                                        ${isLinked ? 'LINKED' : 'PENDING'}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <h3 class="text-xl font-semibold text-text-dark">${sub.title}</h3>
+                                            <p class="text-text-muted text-sm">${sub.description}</p>
+                                            <a href="${sub.link}" target="_blank" class="inline-block mt-3 text-text-dark hover:text-primary-blue font-semibold transition-colors text-sm underline ${isLinked ? '' : 'pointer-events-none opacity-50'}">
+                                                View Submission ${isLinked ? ' &rarr;' : '(TBD) &rarr;'}
+                                            </a>
+                                        </div>
+                                    `;
+                                    container.appendChild(card);
+                                });
+                            }
+                        });
+                    </script>
+                    
+                    <div id="submissions-grid" class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 col-span-full">
+                                            </div>
+                </div>
+            </div>
+        </section>
 
-        <!-- WORK WITH ME / CONTACT Section -->
-        <section id="contact" class="section-bg py-24">
-            <!-- Gradient overlay removed -->
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <h2 class="text-4xl font-extrabold text-center text-text-dark mb-16">Work With Me</h2>
+                <section id="contact" class="section-bg py-24">
+                        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <h2 class="text-4xl font-extrabold text-center text-text-dark mb-16">Work With Me</h2>
 
-                <div class="card-gradient-border shadow-lg">
-                    <div class="bg-white p-8 sm:p-12 space-y-6">
-                        <p class="text-lg text-text-muted text-center max-w-2xl mx-auto">
-                            Need support in **Geospatial or Data Analysis, Natural Ressources Management, Epidemiology, or AI automation**? I help organizations and teams to transform complex data into actionable insights and strategic, high-impact solutions that drive informed decisions and measurable outcomes. Use the form below to connect regarding research partnerships, consulting projects, or Capstone initiatives.
-                        </p>
-                        
-                        <form id="contact-form" class="space-y-6">
-                            <div>
-                                <label for="name" class="block text-sm font-bold text-text-dark mb-1">Your Name</label>
-                                <input type="text" id="name" name="name" required
-                                    class="w-full px-4 py-3 rounded-lg bg-gray-100 border border-gray-300 focus:ring-primary-blue focus:border-primary-blue text-text-dark placeholder-gray-500 transition-colors">
-                            </div>
-                            
-                            <div>
-                                <label for="organization" class="block text-sm font-bold text-text-dark mb-1">Your Organization</label>
-                                <input type="text" id="organization" name="organization" required
-                                    class="w-full px-4 py-3 rounded-lg bg-gray-100 border border-gray-300 focus:ring-primary-blue focus:border-primary-blue text-text-dark placeholder-gray-500 transition-colors">
-                            </div>
+                <div class="card-gradient-border shadow-lg">
+                    <div class="bg-white p-8 sm:p-12 space-y-6">
+                        <p class="text-lg text-text-muted text-center max-w-2xl mx-auto">
+                            Need support in **Geospatial or Data Analysis, Natural Ressources Management, Epidemiology, or AI automation**? I help organizations and teams to transform complex data into actionable insights and strategic, high-impact solutions that drive informed decisions and measurable outcomes. Use the form below to connect regarding research partnerships, consulting projects, or Capstone initiatives.
+                        </p>
+                        
+                        <form id="contact-form" class="space-y-6">
+                            <div>
+                                <label for="name" class="block text-sm font-bold text-text-dark mb-1">Your Name</label>
+                                <input type="text" id="name" name="name" required
+                                    class="w-full px-4 py-3 rounded-lg bg-gray-100 border border-gray-300 focus:ring-primary-blue focus:border-primary-blue text-text-dark placeholder-gray-500 transition-colors">
+                            </div>
+                            
+                            <div>
+                                <label for="organization" class="block text-sm font-bold text-text-dark mb-1">Your Organization</label>
+                                <input type="text" id="organization" name="organization" required
+                                    class="w-full px-4 py-3 rounded-lg bg-gray-100 border border-gray-300 focus:ring-primary-blue focus:border-primary-blue text-text-dark placeholder-gray-500 transition-colors">
+                            </div>
 
-                            <div>
-                                <label for="subject" class="block text-sm font-bold text-text-dark mb-1">Subject</label>
-                                <input type="text" id="subject" name="subject" required
-                                    class="w-full px-4 py-3 rounded-lg bg-gray-100 border border-gray-300 focus:ring-primary-blue focus:border-primary-blue text-text-dark placeholder-gray-500 transition-colors">
-                            </div>
-                            
-                            <div>
-                                <label for="message" class="block text-sm font-bold text-text-dark mb-1">Message</label>
-                                <textarea id="message" name="message" rows="4" required
-                                    class="w-full px-4 py-3 rounded-lg bg-gray-100 border border-gray-300 focus:ring-primary-blue focus:border-primary-blue text-text-dark placeholder-gray-500 transition-colors resize-none"></textarea>
-                            </div>
-                            
-                            <button type="submit" 
-                                class="w-full bg-primary-blue text-white text-lg font-bold py-3 rounded-lg shadow-lg hover:bg-blue-800 transition-colors duration-300 transform hover:scale-[1.01] uppercase tracking-wide">
-                                Send Message
-                            </button>
+                            <div>
+                                <label for="subject" class="block text-sm font-bold text-text-dark mb-1">Subject</label>
+                                <input type="text" id="subject" name="subject" required
+                                    class="w-full px-4 py-3 rounded-lg bg-gray-100 border border-gray-300 focus:ring-primary-blue focus:border-primary-blue text-text-dark placeholder-gray-500 transition-colors">
+                            </div>
+                            
+                            <div>
+                                <label for="message" class="block text-sm font-bold text-text-dark mb-1">Message</label>
+                                <textarea id="message" name="message" rows="4" required
+                                    class="w-full px-4 py-3 rounded-lg bg-gray-100 border border-gray-300 focus:ring-primary-blue focus:border-primary-blue text-text-dark placeholder-gray-500 transition-colors resize-none"></textarea>
+                            </div>
+                            
+                            <button type="submit" 
+                                class="w-full bg-primary-blue text-white text-lg font-bold py-3 rounded-lg shadow-lg hover:bg-blue-800 transition-colors duration-300 transform hover:scale-[1.01] uppercase tracking-wide">
+                                Send Message
+                            </button>
 
-                            <div id="form-message" class="text-center mt-4 hidden text-primary-blue font-semibold p-3 bg-primary-blue/10 rounded-lg"></div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
+                            <div id="form-message" class="text-center mt-4 hidden text-primary-blue font-semibold p-3 bg-primary-blue/10 rounded-lg"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    </main>
+    </main>
 
-    <!-- Footer -->
-    <footer class="bg-gray-200 py-8 mt-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-500">
-            <p>&copy; 2025 Herman Banza Kongolo. Portfolio for Generative AI Course.</p>
-            <p class="mt-2 text-sm">Connect on <a href="https://linkedin.com/in/hermankongolo" target="_blank" class="text-primary-blue hover:text-text-dark transition-colors font-semibold">LinkedIn</a></p>
-        </div>
-    </footer>
+        <footer class="bg-gray-200 py-8 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-500">
+            <p>&copy; 2025 Herman Banza Kongolo. Portfolio for Generative AI Course.</p>
+            <p class="mt-2 text-sm">Connect on <a href="https://linkedin.com/in/hermankongolo" target="_blank" class="text-primary-blue hover:text-text-dark transition-colors font-semibold">LinkedIn</a></p>
+        </div>
+    </footer>
 
-    <!-- JavaScript for Contact Form and Smooth Message Box -->
-    <script>
-        document.getElementById('contact-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            
-            const messageBox = document.getElementById('form-message');
-            messageBox.classList.remove('hidden');
-            messageBox.innerHTML = 'Thank you for your message! Herman B. will review your inquiry and get back to you soon.';
-            
-            // Clear the form after a simulated successful submission
-            setTimeout(() => {
-                event.target.reset();
-            }, 500);
+        <script>
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const messageBox = document.getElementById('form-message');
+            messageBox.classList.remove('hidden');
+            messageBox.innerHTML = 'Thank you for your message! Herman B. will review your inquiry and get back to you soon.';
+            
+            // Clear the form after a simulated successful submission
+            setTimeout(() => {
+                event.target.reset();
+            }, 500);
 
-            // Hide the message after a few seconds
-            setTimeout(() => {
-                messageBox.classList.add('hidden');
-            }, 6000);
+            // Hide the message after a few seconds
+            setTimeout(() => {
+                messageBox.classList.add('hidden');
+            }, 6000);
 
-            console.log('Contact Form submitted (simulated). Data captured:');
-            console.log({
-                name: document.getElementById('name').value,
-                organization: document.getElementById('organization').value, // Added organization field
-                subject: document.getElementById('subject').value,
-                message: document.getElementById('message').value
-            });
-        });
-    </script>
+            console.log('Contact Form submitted (simulated). Data captured:');
+            console.log({
+                name: document.getElementById('name').value,
+                organization: document.getElementById('organization').value, // Added organization field
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value
+            });
+        });
+    </script>
 </body>
 </html>
