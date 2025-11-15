@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Herman B. | Generative AI Portfolio</title>
-        <script src="https://cdn.tailwindcss.com"></script>
-        <script>
+    <!-- Load Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configure Tailwind for custom colors and Inter font -->
+    <script>
         tailwind.config = {
             theme: {
                 extend: {
@@ -26,7 +28,8 @@
             }
         }
     </script>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <!-- Add Inter font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <style>
         /* Custom styles for smooth scrolling and header opacity */
         html {
@@ -111,7 +114,8 @@
 
 <body class="bg-main-bg text-text-dark font-sans">
 
-        <header class="sticky top-0 z-50 header-blue-bg shadow-xl">
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-50 header-blue-bg shadow-xl">
         <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
             <div class="flex justify-between items-center">
                 <a href="#hero" class="text-2xl font-extrabold text-white tracking-tight hover:text-white transition-colors">
@@ -123,34 +127,41 @@
                     <a href="#submissions" class="text-white opacity-80 hover:opacity-100 transition-opacity">Submissions</a>
                     <a href="#contact" class="text-white opacity-80 hover:opacity-100 transition-opacity">Work with Me</a>
                 </div>
-                            </div>
+                <!-- Mobile Menu Button - Left as placeholder for full mobile implementation -->
+            </div>
         </nav>
     </header>
 
     <main>
-                <section id="hero" class="section-bg pt-0 pb-0">
+        <!-- HERO Section -->
+        <section id="hero" class="section-bg pt-0 pb-0">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 hero-centered">
 
-                                <div class="mb-8 mt-12">
+                <!-- Profile Image (Centré en haut) -->
+                <div class="mb-8 mt-12">
                     <div class="profile-photo-container">
                          <img src="https://raw.githubusercontent.com/Herman-BK/graph-ai-portfolio/main/HB.jpeg" 
                              alt="Herman Banza Kongolo Profile">
                     </div>
                 </div>
 
-                                <div class="space-y-6 max-w-4xl">
+                <!-- Presentation Text (Centré en dessous) -->
+                <div class="space-y-6 max-w-4xl">
                     <p class="text-primary-blue text-xl font-semibold mb-3 tracking-wider uppercase">Generative AI for Work & Research Productivity</p>
                     
-                                        <h1 class="text-5xl sm:text-6xl font-extrabold text-text-dark leading-tight mb-4">
+                    <!-- Professional Background Headline for maximum impact -->
+                    <h1 class="text-5xl sm:text-6xl font-extrabold text-text-dark leading-tight mb-4">
                         GenAI & <span class="text-primary-blue">GEOSPATIAL DATA</span> RESEARCHER
                     </h1>
 
-                                        <p class="text-3xl font-light text-text-dark leading-snug mx-auto">
+                    <!-- Short presentation unified into one professional paragraph -->
+                    <p class="text-3xl font-light text-text-dark leading-snug mx-auto">
                        I apply advanced Geospatial Data Analysis and AI automation to solve complex challenges in work and scientific research.
                     </p>
                     
                     <div class="pt-8">
-                                                <a href="#contact" 
+                        <!-- CTA Button (Enhanced hover for professionalism) -->
+                        <a href="#contact" 
                             class="inline-block bg-primary-blue text-white text-xl font-bold py-4 px-10 rounded-lg shadow-xl hover:bg-blue-800 transition-colors duration-300 transform hover:scale-[1.01] uppercase tracking-wide">
                             Work With Me &rarr;
                         </a>
@@ -163,21 +174,25 @@
             </div>
         </section>
         
-                <section id="about" class="section-bg py-24">
+        <!-- ABOUT ME Section -->
+        <section id="about" class="section-bg py-24">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 class="text-4xl font-extrabold text-center text-text-dark mb-16">About My Work & Background</h2>
                 
                 <div class="grid lg:grid-cols-3 gap-10 items-start">
                     
-                                        <div class="lg:col-span-1 space-y-6 text-lg text-text-muted p-8 rounded-xl bg-white border border-gray-200 shadow-md h-full card-gradient-border hover:transform-none">
+                    <!-- Major Narrative / Summary Block (Enhanced Padding) -->
+                    <div class="lg:col-span-1 space-y-6 text-lg text-text-muted p-8 rounded-xl bg-white border border-gray-200 shadow-md h-full card-gradient-border hover:transform-none">
                         <p class="text-xl font-semibold text-primary-blue">Bridging Scientific Research, Geospatial Data, and AI</p>
                         <p>I transform complex data into strategic, actionable insights, particularly in the fields of Natural Ressources Management and Public Health. I combine rigorous academic training in Geospatial Project Management, Natural Ressources Management and Epidemiology with practical expertise in AI automation to develop solutions that have measurable real-world impact.</p>
                         <p>I am proficient in **Python and R** and leverage specialized tools (like Google Earth Engine, ArcGIS, QGIS and Web GIS) to model complex phenomena, such as disease dynamics and land-use changes.</p>
                     </div>
                     
-                                        <div class="lg:col-span-2 grid md:grid-cols-2 gap-8">
+                    <!-- Sub-sections: Current Role, Education, Highlight -->
+                    <div class="lg:col-span-2 grid md:grid-cols-2 gap-8">
                         
-                                                <div class="card-gradient-border">
+                        <!-- Current Role -->
+                        <div class="card-gradient-border">
                             <div class="bg-white p-6 space-y-3 h-full">
                                 <h3 class="text-2xl font-bold text-primary-blue mb-2">Current Role & Focus</h3>
                                 <p class="text-lg text-text-dark font-medium">
@@ -191,7 +206,8 @@
                             </div>
                         </div>
                         
-                                                <div class="card-gradient-border">
+                        <!-- Education -->
+                        <div class="card-gradient-border">
                             <div class="bg-white p-6 space-y-3 h-full">
                                 <h3 class="text-2xl font-bold text-primary-blue mb-2">Key Education</h3>
                                 <ul class="list-disc list-inside space-y-3 text-text-muted pl-4">
@@ -202,7 +218,8 @@
                             </div>
                         </div>
                         
-                                                <div class="card-gradient-border md:col-span-2">
+                        <!-- Recent Work Highlight (UPDATED TO TEMPO PROJECT) -->
+                        <div class="card-gradient-border md:col-span-2">
                              <div class="bg-white p-6 space-y-3">
                                 <h3 class="text-2xl font-bold text-primary-blue mb-2">Recent Work Highlight: Web GIS Development (TEMPO Project)</h3>
                                 <p class="text-lg text-text-dark font-medium">
@@ -217,7 +234,8 @@
                         </div>
                     </div>
                     
-                                        <div class="card-gradient-border lg:col-span-3 mt-4">
+                    <!-- Technical Expertise (Cleaned up font weights) -->
+                    <div class="card-gradient-border lg:col-span-3 mt-4">
                          <div class="bg-white p-6 space-y-3">
                             <h3 class="text-2xl font-bold text-text-dark mb-4 text-primary-blue">Technical Expertise Summary</h3>
                             <div class="grid sm:grid-cols-3 gap-6 text-text-muted text-lg">
@@ -242,7 +260,8 @@
             </div>
         </section>
 
-                <section id="course" class="section-bg py-24">
+        <!-- ABOUT THE COURSE Section -->
+        <section id="course" class="section-bg py-24">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <h2 class="text-4xl font-extrabold text-center text-text-dark mb-16">The "Generative AI for Work & Research" Course</h2>
 
@@ -302,12 +321,14 @@
             </div>
         </section>
 
-                <section id="submissions" class="section-bg py-24">
+        <!-- MY WEEKLY SUBMISSIONS Section -->
+        <section id="submissions" class="section-bg py-24">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 class="text-4xl font-extrabold text-center text-text-dark mb-16">My Weekly Submissions</h2>
 
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                                        <script>
+                    <!-- Submission Card Component -->
+                    <script>
                         // Submission data based on course modules
                         const submissions = [
                             { week: 1, title: 'Websites, Documents & Presentations', description: 'Generating structured outputs (Markdown, LaTeX, HTML) and building no-code research websites.', link: '#' },
@@ -330,8 +351,10 @@
                                     card.innerHTML = `
                                         <div class="bg-white p-6 h-full transition-all duration-300 hover:bg-gray-50 hover:shadow-lg space-y-3">
                                             <div class="flex items-center justify-between mb-2">
-                                                                                                <div class="text-sm font-bold text-primary-blue border border-primary-blue px-3 py-1 rounded-full">Week ${sub.week}</div>
-                                                                                                <div class="text-xs font-light text-text-muted">
+                                                <!-- Professional Pill Badge for Week -->
+                                                <div class="text-sm font-bold text-primary-blue border border-primary-blue px-3 py-1 rounded-full">Week ${sub.week}</div>
+                                                <!-- Link Status Badge (Updated logic) -->
+                                                <div class="text-xs font-light text-text-muted">
                                                     <span class="${isLinked ? 'bg-green-600' : 'animate-pulse bg-primary-blue'} text-white px-2 py-0.5 rounded-full font-medium tracking-wider">
                                                         ${isLinked ? 'LINKED' : 'PENDING'}
                                                     </span>
@@ -351,13 +374,16 @@
                     </script>
                     
                     <div id="submissions-grid" class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 col-span-full">
-                                            </div>
+                        <!-- Cards will be injected here by JavaScript -->
+                    </div>
                 </div>
             </div>
         </section>
 
-                <section id="contact" class="section-bg py-24">
-                        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <!-- WORK WITH ME / CONTACT Section -->
+        <section id="contact" class="section-bg py-24">
+            <!-- Gradient overlay removed -->
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <h2 class="text-4xl font-extrabold text-center text-text-dark mb-16">Work With Me</h2>
 
                 <div class="card-gradient-border shadow-lg">
@@ -405,14 +431,16 @@
 
     </main>
 
-        <footer class="bg-gray-200 py-8 mt-12">
+    <!-- Footer -->
+    <footer class="bg-gray-200 py-8 mt-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-500">
             <p>&copy; 2025 Herman Banza Kongolo. Portfolio for Generative AI Course.</p>
             <p class="mt-2 text-sm">Connect on <a href="https://linkedin.com/in/hermankongolo" target="_blank" class="text-primary-blue hover:text-text-dark transition-colors font-semibold">LinkedIn</a></p>
         </div>
     </footer>
 
-        <script>
+    <!-- JavaScript for Contact Form and Smooth Message Box -->
+    <script>
         document.getElementById('contact-form').addEventListener('submit', function(event) {
             event.preventDefault();
             
