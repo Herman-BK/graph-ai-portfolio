@@ -5,29 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Herman B. | Generative AI Portfolio</title>
     
-    <!-- Botpress Webchat Configuration (Define config FIRST) -->
-    <script>
-        window.botpressWebChat = {
-            config: {
-                // This configuration links directly to your bot's settings file.
-                "configUrl": "https://files.bpcontent.cloud/2025/11/15/19/20251115195334-M6GY3S1W.json",
-                "botName": "AI Portfolio Assistant",
-                "botConversationDescription": "Ask about my research and AI projects.",
-                "themeName": "prism",
-                "hideWidget": false, // Ensures the widget is visible
-                // Explicitly sets the widget position to the bottom right
-                "floatingWindow": { 
-                    "right": "30px", // 30px from the right edge
-                    "bottom": "30px", // 30px from the bottom edge
-                    "left": null 
-                }
-            }
-        };
-    </script>
-    <!-- Botpress Webchat Injector Script (Load script SECOND) -->
-    <script src="https://cdn.botpress.cloud/webchat/v3/inject.js"></script>
-    <!-- End Botpress Webchat Embed -->
-    
     <!-- Load Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Configure Tailwind for custom colors and Inter font -->
@@ -132,6 +109,18 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+        }
+
+        /* Chat Bubble Styles */
+        #chat-bubble {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            /* Specific shadow for gray button */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        #chat-bubble:hover {
+            transform: scale(1.1);
+            /* Enhanced hover shadow */
+            box-shadow: 0 10px 25px rgba(100, 100, 100, 0.6); 
         }
     </style>
 </head>
@@ -465,8 +454,55 @@
         </div>
     </footer>
 
-    <!-- JavaScript for Contact Form and Smooth Message Box -->
+    <!-- Fixed Chat Bubble (Bottom-Right) - Now Gray -->
+    <button id="chat-bubble" class="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-gray-600 hover:bg-gray-700 flex items-center justify-center shadow-xl z-50 focus:outline-none" onclick="toggleChatModal()">
+        <!-- Chat Icon (Inline SVG) -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-7 h-7 text-white">
+            <path d="M4.996 9.872A1.897 1.897 0 0 1 6.892 7.978h10.216a1.897 1.897 0 0 1 1.896 1.894v6.257c0 1.05-.668 1.996-1.677 2.392l-4.227 1.69a.896.896 0 0 1-1.076 0l-4.227-1.69a2.38 2.38 0 0 1-1.677-2.392V9.872Z" />
+            <path fill-rule="evenodd" d="M11.394 2.148a.5.5 0 0 0-.788 0l-3.23 4.298C6.182 7.373 6 8.324 6 9.276V16.5a2.5 2.5 0 0 0 2.5 2.5h7A2.5 2.5 0 0 0 18 16.5V9.276c0-.952-.182-1.898-.826-2.83l-3.23-4.298Z" clip-rule="evenodd" />
+        </svg>
+    </button>
+
+    <!-- Custom Modal for Chat Simulation -->
+    <div id="custom-modal" class="fixed inset-0 bg-black bg-opacity-75 hidden items-center justify-center z-[100]">
+        <div class="bg-white p-8 rounded-xl max-w-sm w-full shadow-2xl border border-primary-blue/50">
+            <h3 id="modal-title" class="text-2xl font-bold text-primary-blue mb-4"></h3>
+            <p id="modal-message" class="text-text-dark mb-6"></p>
+            <button class="w-full bg-primary-blue hover:bg-blue-800 text-white font-semibold py-2 rounded-lg transition duration-300" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
+
+    <!-- JavaScript for Contact Form and Modal -->
     <script>
+        // --- MODAL FUNCTIONS ---
+        const modal = document.getElementById('custom-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalMessage = document.getElementById('modal-message');
+
+        /** Shows the custom alert/modal box. */
+        function showAlert(title, message) {
+            modalTitle.textContent = title;
+            modalMessage.textContent = message;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        /** Closes the custom modal box. */
+        function closeModal() {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        /** Function to simulate the chat bubble click. */
+        function toggleChatModal() {
+            showAlert(
+                "AI Portfolio Assistant",
+                "Hello! I'm here to help. I can summarize Herman's core expertise, provide details on the Generative AI course, or link you to his LinkedIn profile."
+            );
+        }
+        
+        // --- CONTACT FORM LOGIC ---
         document.getElementById('contact-form').addEventListener('submit', function(event) {
             event.preventDefault();
             
@@ -487,7 +523,7 @@
             console.log('Contact Form submitted (simulated). Data captured:');
             console.log({
                 name: document.getElementById('name').value,
-                organization: document.getElementById('organization').value, // Added organization field
+                organization: document.getElementById('organization').value,
                 subject: document.getElementById('subject').value,
                 message: document.getElementById('message').value
             });
